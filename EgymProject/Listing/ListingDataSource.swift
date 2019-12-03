@@ -22,7 +22,7 @@ final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSou
         self.items = items
     }
     
-    var didSelectItemAtIndex: ((Int) -> Void)?
+    var didSelectItem: ((VisibleArticle) -> Void)?
     
     // MARK: - Initializer
     
@@ -38,9 +38,9 @@ final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard indexPath.item < items.count else { fatalError() }
-        let visibleRecipe = items[indexPath.item]
+        let visibleArticle = items[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingTableViewCell", for: indexPath) as! ListingTableViewCell
-        cell.configure(with: visibleRecipe, imageProvider: imageProvider)
+        cell.configure(with: visibleArticle, imageProvider: imageProvider)
         return cell
     }
     
@@ -53,6 +53,6 @@ final class ListingDataSource: NSObject, UITableViewDelegate, UITableViewDataSou
         }
         
         let index = indexPath.item
-        didSelectItemAtIndex?(index)
+        didSelectItem?(items[index])
     }
 }

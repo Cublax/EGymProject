@@ -27,29 +27,27 @@ final class ListingViewModel {
     
     private weak var delegate: ListingViewModelDelegate?
     
-    private var source: String
-    
     private var articles: [VisibleArticle] = [] {
         didSet {
-            print(articles)
+            visibleArticles?(self.articles)
         }
     }
     
     // MARK: - Initializer
     
-    init(repository: ListingRepositoryType,delegate: ListingViewModelDelegate?, source: String) {
+    init(repository: ListingRepositoryType,delegate: ListingViewModelDelegate?) {
         self.repository = repository
-        self.source = source
     }
     // MARK: - Outputs
+    
+     var visibleArticles: (([VisibleArticle]) -> Void)?
     
     func viewDidLoad() {
          refresh()
     }
     
     private func refresh() {
-        repository.getArticles(for: source, success: { (articles) in
-            print(articles)
+        repository.getArticles(success: { (articles) in
             self.articles = articles
         }, failure: { [weak self] in
             self?.delegate?.shouldDisplayAlert(for: .requestError)
@@ -58,4 +56,7 @@ final class ListingViewModel {
     
     // MARK: - Inputs
     
+    func didSelectArticle(with article: VisibleArticle) {
+        delegate?.didSelectArticle(recipe: article)
+    }
 }

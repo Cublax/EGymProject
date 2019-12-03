@@ -9,13 +9,15 @@
 import Foundation
 
 protocol ListingRepositoryType {
-    func getArticles(for section: String, success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void))
+    func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void))
 }
 
 
-final class HomeRepository: ListingRepositoryType {
+final class ListingRepository: ListingRepositoryType {
     
     // MARK: - Properties
+    
+    private let source: String
     
     private let networkClient: HTTPClient
     
@@ -25,14 +27,15 @@ final class HomeRepository: ListingRepositoryType {
     
     // MARK: - Initializer
     
-    init(networkClient: HTTPClient) {
+    init(networkClient: HTTPClient, source: String) {
         self.networkClient = networkClient
+        self.source = source
     }
     
     // MARK: - Requests
     
-    func getArticles(for section: String, success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void)) {
-        let myurl: String = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=jGNtGsUTozACEcGEtLEW8xQKAa95gPqb"
+    func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void)) {
+        let myurl: String = "https://api.nytimes.com/svc/topstories/v2/\(source).json?api-key=jGNtGsUTozACEcGEtLEW8xQKAa95gPqb"
             
             guard let url = URL(string: myurl) else {return}
             
@@ -49,8 +52,8 @@ final class HomeRepository: ListingRepositoryType {
                                                                                            subTitle: $0.abstract,
                                                                                            urlArticle: $0.url,
                                                                                            date: $0.updatedDate,
-                                                                                           smallPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("Standard Thumbnail") }.map { $0.url }.first ?? "",
-                                                                                           bigPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("mediumThreeByTwo210") }.map { $0.url }.first ?? "") }
+                                                                                           smallPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("Standard Thumbnail") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-thumbStandard.jpg",
+                                                                                           bigPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("mediumThreeByTwo210") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-mediumThreeByTwo210.jpg") }
                     success(item)
                     case .failure(_):
                         failure()

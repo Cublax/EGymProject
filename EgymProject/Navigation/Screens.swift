@@ -32,11 +32,11 @@ protocol ListingViewModelDelegate: class {
 extension Screens {
     func createHomeViewController(delegate: ListingViewModelDelegate?, source: String) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-        let repository = HomeRepository(networkClient: context.networkClient)
+        let repository = ListingRepository(networkClient: context.networkClient, source: source)
         let viewModel = ListingViewModel(repository: repository,
-                                         delegate: delegate,
-                                         source: source)
+                                         delegate: delegate)
         viewController.viewModel = viewModel
+        viewController.imageProvider = context.imageProvider
         return viewController
     }
 }

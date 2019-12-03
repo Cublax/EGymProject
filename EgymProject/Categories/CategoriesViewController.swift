@@ -11,7 +11,6 @@ import UIKit
 class CategoriesViewController: UIViewController {
     
     // MARK: - Outlets
-    
 
     // MARK: - Properties
     

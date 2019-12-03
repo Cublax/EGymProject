@@ -20,30 +20,34 @@ class ListingViewController: UIViewController {
     
     var imageProvider: ImageProvider!
     
-//    private lazy var dataSource: ListingDataSource = {
-//           return ListingDataSource(imageProvider: imageProvider)
-//       }()
+    private lazy var dataSource: ListingDataSource = {
+           return ListingDataSource(imageProvider: imageProvider)
+       }()
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tableView.dataSource = dataSource
-//        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+        tableView.delegate = dataSource
         
-        //bind(to: dataSource)
+        bind(to: dataSource)
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
     
     private func bind(to viewModel: ListingViewModel) {
-       
-        
+        viewModel.visibleArticles = { [weak self] articles in
+           DispatchQueue.main.async {
+               self?.dataSource.update(with: articles)
+               self?.tableView.reloadData()
+           }
+       }
     }
     
     private func bind(to dataSource: ListingDataSource) {
-        //dataSource.didSelectItemAtIndex = viewModel.
+        dataSource.didSelectItem = viewModel.didSelectArticle
     }
 }
 

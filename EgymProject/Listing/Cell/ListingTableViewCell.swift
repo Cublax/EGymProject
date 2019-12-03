@@ -11,6 +11,7 @@ import UIKit
 final class ListingTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var articleNameLabel: UILabel!
     @IBOutlet weak var authorNameLabel: UILabel!
@@ -32,14 +33,22 @@ final class ListingTableViewCell: UITableViewCell {
     }
     
     func configureCell() {
-        
+        self.articleNameLabel.text = article.title
+        self.authorNameLabel.text = article.author
+        cancellationToken = RequestCancellationToken()
+        guard let url = URL(string: article.smallPictureUrl) else { return }
+        imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
+            DispatchQueue.main.async {
+                self?.articleImageView.image = image
+            }
+        }
     }
     
     override func prepareForReuse() {
         cancellationToken = nil
-        articleImageView = nil
-        articleNameLabel = nil
-        authorNameLabel = nil
+        articleImageView.image = nil
+        articleNameLabel.text = nil
+        authorNameLabel.text = nil
     }
     
 }
