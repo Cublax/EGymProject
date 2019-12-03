@@ -24,10 +24,18 @@ final class Screens {
 
 // MARK: - ListingViewController
 
+protocol ListingViewModelDelegate: class {
+    func didSelectArticle(recipe: VisibleArticle)
+    func shouldDisplayAlert(for type: AlertType)
+}
+
 extension Screens {
-    func createListingViewController() -> UIViewController {
+    func createHomeViewController(delegate: ListingViewModelDelegate?, source: String) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-        let viewModel = ListingViewModel()
+        let repository = HomeRepository(networkClient: context.networkClient)
+        let viewModel = ListingViewModel(repository: repository,
+                                         delegate: delegate,
+                                         source: source)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -52,6 +60,22 @@ extension Screens {
         let viewModel = ArticleViewModel()
         viewController.viewModel = viewModel
         return viewController
+    }
+}
+
+// MARK: - Alert
+
+extension Screens {
+    func createAlert(for type: AlertType) -> UIAlertController {
+        let alert = Alert(type: type)
+        let alertController = UIAlertController(title: alert.title,
+                                                message: alert.message,
+                                                preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok",
+                                   style: .cancel,
+                                   handler: nil)
+        alertController.addAction(action)
+        return alertController
     }
 }
 

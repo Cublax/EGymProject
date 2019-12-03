@@ -11,15 +11,38 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var coordinator: AppCoordinator!
+       var context: Context!
+    
+    // MARK: - Private properties
+       
+       private var imageCache: NSCache<Key, Object>!
+
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(windowScene: scene)
+        window!.makeKeyAndVisible()
+        imageCache = NSCache<Key, Object>()
+        
+        let client = HTTPClient(engine: .urlSession(.default))
+        
+        let imageRepository = ImageRepository(networkClient: client)
+        
+        let imageProvider = ImageProvider(repository: imageRepository,
+                                          cache: self.imageCache)
+        
+       
+        
+        context = Context(networkClient: client,
+                          imageProvider: imageProvider)
+        
+        coordinator = AppCoordinator(sceneDelegate: self,
+                                     context: context)
+        coordinator.start()
     }
-
     
 }
 

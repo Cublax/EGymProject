@@ -30,7 +30,7 @@ final class FavoriteCoordinator {
     }
     
     private func showFavoriteViewController() {
-        let viewController = screens.createListingViewController()
-        presenter.viewControllers = [viewController]
+//        let viewController = screens()
+//        presenter.viewControllers = [viewController]
     }
 }

@@ -16,6 +16,8 @@ final class FeedCoordinator {
     
     private let screens: Screens
     
+    private let source = "home"
+    
     // MARK: - Initializer
     
     init(presenter: UINavigationController, screens: Screens) {
@@ -30,7 +32,22 @@ final class FeedCoordinator {
     }
     
     private func showFeedViewController() {
-        let viewController = screens.createListingViewController()
+        let viewController = screens.createHomeViewController(delegate: self, source: source)
         presenter.viewControllers = [viewController]
+    }
+    
+    func showAlert(for type: AlertType) {
+        let alert = screens.createAlert(for: type)
+        presenter.visibleViewController?.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension FeedCoordinator: ListingViewModelDelegate {
+    func didSelectArticle(recipe: VisibleArticle) {
+    
+    }
+    
+    func shouldDisplayAlert(for type: AlertType) {
+        showAlert(for: type)
     }
 }
