@@ -9,17 +9,17 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     var coordinator: AppCoordinator!
-       var context: Context!
+    var context: Context!
     
     // MARK: - Private properties
-       
-       private var imageCache: NSCache<Key, Object>!
-
-
-
+    
+    private var imageCache: NSCache<Key, Object>!
+    
+    private var stack: CoreDataStack!
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         
@@ -34,9 +34,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let imageProvider = ImageProvider(repository: imageRepository,
                                           cache: self.imageCache)
         
-       
+        stack = CoreDataStack(modelName: "Model")
         
-        context = Context(networkClient: client,
+        context = Context(stack: stack,
+                          networkClient: client,
                           imageProvider: imageProvider)
         
         coordinator = AppCoordinator(sceneDelegate: self,

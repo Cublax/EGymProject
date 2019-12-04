@@ -14,7 +14,6 @@ struct VisibleArticle: Equatable {
     let author: String
     let subTitle: String
     let urlArticle: String
-    let date: String
     let smallPictureUrl: String
     let bigPictureUrl: String
 }

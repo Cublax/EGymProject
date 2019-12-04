@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ArticleViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var navigationBar: UINavigationItem!
     
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -40,11 +42,30 @@ class ArticleViewController: UIViewController {
         viewModel.visibleArticle = { [weak self] article in
             DispatchQueue.main.async {
                 self?.configureImage(with: article.bigPictureUrl)
+                self?.navigationBar.title = article.category
                 self?.titleLabel.text = article.title
                 self?.authorLabel.text = article.author
                 self?.subTitleLabel.text = article.subTitle
             }
         }
+        
+        viewModel.isFavorite = { [weak self] state in
+            self?.setFavorite(favorite: state)
+        }
+    }
+    
+    private func setFavorite(favorite: Bool) {
+        guard let selected = UIImage(systemName: "bookmark.fill") else { return }
+        guard let unselected = UIImage(systemName: "bookmark") else { return }
+        var hearth: UIImage
+        
+        switch favorite {
+        case true:
+            hearth = selected
+        case false:
+            hearth = unselected
+        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: hearth, style: .done, target: self, action: #selector(didPressFavorite))
     }
     
     private func configureImage(with url: String) {
@@ -55,6 +76,10 @@ class ArticleViewController: UIViewController {
                 self?.articleImageView.image = image
             }
         }
+    }
+    
+    @objc private func didPressFavorite() {
+        viewModel.clickedOnFavorite()
     }
     
     @IBAction func didPressShowMoreButton(_ sender: Any) {

@@ -36,7 +36,12 @@ final class CategoriesCoordinator {
     
     private func showFeedViewController(for category: String) {
         let viewController = screens.createListingViewController(delegate: self, category: category)
-        presenter.viewControllers = [viewController]
+        presenter.show(viewController, sender: nil)
+    }
+    
+    private func showArticleViewController(for article: VisibleArticle) {
+        let viewController = screens.createArticleViewController(delegate: self, article: article)
+        presenter.show(viewController, sender: nil)
     }
     
     func showAlert(for type: AlertType) {
@@ -53,10 +58,16 @@ extension CategoriesCoordinator: CategoriesViewModelDelegate {
 
 extension CategoriesCoordinator: ListingViewModelDelegate {
     func didSelectArticle(article: VisibleArticle) {
-        
+        showArticleViewController(for: article)
     }
     
     func shouldDisplayAlert(for type: AlertType) {
-         showAlert(for: type)
+        showAlert(for: type)
+    }
+}
+
+extension CategoriesCoordinator: ArticleViewModelDelegate {
+    func showFullArticle(for link: String) {
+        
     }
 }

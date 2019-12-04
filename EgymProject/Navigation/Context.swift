@@ -16,13 +16,13 @@ final class Context {
     
     let imageProvider: ImageProvider
     
-    //let stack: CoreDataStack
+    let stack: CoreDataStack
     
     // MARK: - Initializer
     
-    init(networkClient: HTTPClient, imageProvider: ImageProvider) {
+    init(stack: CoreDataStack, networkClient: HTTPClient, imageProvider: ImageProvider) {
         self.networkClient = networkClient
         self.imageProvider = imageProvider
-        //self.stack = stack
+        self.stack = stack
     }
 }

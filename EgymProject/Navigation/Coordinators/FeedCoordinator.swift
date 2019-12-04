@@ -38,7 +38,7 @@ final class FeedCoordinator {
     
     private func showArticleViewController(for article: VisibleArticle) {
         let viewController = screens.createArticleViewController(delegate: self, article: article)
-        presenter.viewControllers = [viewController]
+        presenter.show(viewController, sender: nil)
     }
     
     private func showAlert(for type: AlertType) {

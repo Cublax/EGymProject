@@ -24,12 +24,10 @@ struct AResult: Codable {
     let abstract: String
     let url: String
     let byline: String
-    let updatedDate: String
     let multimedia: [AMultimedia]
 
     enum CodingKeys: String, CodingKey {
         case section, title, abstract, url, byline
-        case updatedDate = "updated_date"
         case multimedia
     }
 }

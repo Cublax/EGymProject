@@ -35,7 +35,7 @@ final class TabBarSource: TabBarSourceType {
         if let font = UIFont(name: "Copperplate", size: 15.0) {
             UITabBarItem.appearance().setTitleTextAttributes([.font: font],
                                                              for: .normal)
-            
+        }
             UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.2134923041, green: 0.2007651627, blue: 0.196667999, alpha: 1)
             UINavigationBar.appearance().tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             
@@ -45,7 +45,6 @@ final class TabBarSource: TabBarSourceType {
             self[.categories].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
             self[.favorite].tabBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 1)
             self[.favorite].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
-        }
     }
 }
 

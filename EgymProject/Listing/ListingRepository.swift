@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol ListingRepositoryType {
     func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void))
@@ -51,9 +52,8 @@ final class ListingRepository: ListingRepositoryType {
                                                                                            author: $0.byline,
                                                                                            subTitle: $0.abstract,
                                                                                            urlArticle: $0.url,
-                                                                                           date: $0.updatedDate,
                                                                                            smallPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("Standard Thumbnail") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-thumbStandard.jpg",
-                                                                                           bigPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("superJumbo") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-mediumThreeByTwo210.jpg") }
+                                                                                           bigPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("superJumbo") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-superJumbo.jpg") }
                     success(item)
                     case .failure(_):
                         failure()
@@ -62,4 +62,25 @@ final class ListingRepository: ListingRepositoryType {
         }
     }
 
-
+final class FavoriteListingRepository: ListingRepositoryType {
+    
+    let stack: CoreDataStack
+    
+    init(stack: CoreDataStack) {
+        self.stack = stack
+    }
+    
+    func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void)) {
+        let request: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
+        guard let response = try? stack.context.fetch(request) else {return}
+        let item : [VisibleArticle] = response.map  { VisibleArticle(category: $0.category ?? "",
+                                                                     title: $0.title ?? "",
+                                                                     author: $0.author ?? "",
+                                                                     subTitle: $0.subTitle ?? "",
+                                                                     urlArticle: $0.urlArticle ?? "",
+                                                                     smallPictureUrl: $0.smallPictureUrl ?? "",
+                                                                     bigPictureUrl: $0.bigPictureUrl ?? "")
+        }
+        success(item)
+    }
+}

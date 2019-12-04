@@ -39,6 +39,16 @@ extension Screens {
         viewController.imageProvider = context.imageProvider
         return viewController
     }
+    
+    func createFavoriteListingViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
+        let repository = FavoriteListingRepository(stack: context.stack)
+        let viewModel = ListingViewModel(repository: repository,
+                                         delegate: delegate)
+        viewController.viewModel = viewModel
+        viewController.imageProvider = context.imageProvider
+        return viewController
+    }
 }
 
 // MARK: - CategoriesViewController
@@ -66,8 +76,10 @@ protocol ArticleViewModelDelegate: class {
 extension Screens {
     func createArticleViewController(delegate: ArticleViewModelDelegate?, article: VisibleArticle) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ArticleViewController") as! ArticleViewController
+        let repository = ArticleRepository(stack: context.stack)
         let viewModel = ArticleViewModel(article: article,
-                                         delegate: delegate)
+                                         delegate: delegate,
+                                         repository: repository)
         viewController.viewModel = viewModel
         viewController.imageProvider = context.imageProvider
         return viewController

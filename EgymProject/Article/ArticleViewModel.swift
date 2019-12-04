@@ -16,24 +16,46 @@ final class ArticleViewModel {
     
     private weak var delegate: ArticleViewModelDelegate?
     
+    private let repository: ArticleRepositoryType
+    
     // MARK: - Initializer
     
-    init(article: VisibleArticle, delegate: ArticleViewModelDelegate?) {
+    init(article: VisibleArticle, delegate: ArticleViewModelDelegate?, repository: ArticleRepositoryType) {
         self.article = article
         self.delegate = delegate
+        self.repository = repository
     }
     // MARK: - Outputs
     
-     var visibleArticle: ((VisibleArticle) -> Void)?
+    var visibleArticle: ((VisibleArticle) -> Void)?
+    
+    var isFavorite: ((Bool) -> Void)?
     
     func viewDidLoad() {
         visibleArticle?(article)
+        
+        repository.checkIfFavorite(title: article.title) { state in
+            self.isFavorite?(state)
+        }
     }
-    
-    // MARK: - Inputs
-    
-    func openWebView() {
-     //   delega
+        
+        // MARK: - Inputs
+        
+        func clickedOnFavorite() {
+            repository.checkIfFavorite(title: article.title) { (favoriteState) in
+                switch favoriteState {
+                case true:
+                    repository.removeFavorite(title: article.title)
+                    isFavorite?(false)
+                case false:
+                    repository.addToFavorite(article: article)
+                    isFavorite?(true)
+                }
+            }
+        }
+        
+        func openWebView() {
+            //   delega
+        }
     }
-    
-}
+
