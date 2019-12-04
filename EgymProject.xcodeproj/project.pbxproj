@@ -259,9 +259,9 @@
 			children = (
 				AC5D0E002397A1C300A3F671 /* Cell */,
 				AC8C0B5A239178A9008B2006 /* CategoriesViewController.swift */,
-				ACC3438B2397AD5200098152 /* CategoriesRepository.swift */,
 				AC5D0DFC2397A18700A3F671 /* CategoriesDataSource.swift */,
 				AC8C0B5D239178DE008B2006 /* CategoriesViewModel.swift */,
+				ACC3438B2397AD5200098152 /* CategoriesRepository.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";

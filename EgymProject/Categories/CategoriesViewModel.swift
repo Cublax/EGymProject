@@ -18,7 +18,8 @@ final class CategoriesViewModel {
     
     // MARK: - Initializer
     
-    init(repository: CategoriesRepository, delegate: CategoriesViewModelDelegate?) {
+    init(repository: CategoriesRepository,
+         delegate: CategoriesViewModelDelegate?) {
         self.repository = repository
         self.delegate = delegate
     }

@@ -59,11 +59,17 @@ extension Screens {
 
 // MARK: - ArticleViewController
 
+protocol ArticleViewModelDelegate: class {
+    func showFullArticle(for link: String)
+}
+
 extension Screens {
-    func createArticleViewController() -> UIViewController {
+    func createArticleViewController(delegate: ArticleViewModelDelegate?, article: VisibleArticle) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ArticleViewController") as! ArticleViewController
-        let viewModel = ArticleViewModel()
+        let viewModel = ArticleViewModel(article: article,
+                                         delegate: delegate)
         viewController.viewModel = viewModel
+        viewController.imageProvider = context.imageProvider
         return viewController
     }
 }

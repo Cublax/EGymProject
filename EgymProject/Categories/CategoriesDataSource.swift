@@ -17,7 +17,7 @@ final class CategoriesDataSource: NSObject, UITableViewDelegate, UITableViewData
     // MARK: - Public
     
     func update(with items: [String]) {
-        self.items = items
+        self.items = items.sorted { $0 < $1 }
     }
     
     var didSelectItem: ((String) -> Void)?

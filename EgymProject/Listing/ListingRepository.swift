@@ -53,7 +53,7 @@ final class ListingRepository: ListingRepositoryType {
                                                                                            urlArticle: $0.url,
                                                                                            date: $0.updatedDate,
                                                                                            smallPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("Standard Thumbnail") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-thumbStandard.jpg",
-                                                                                           bigPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("mediumThreeByTwo210") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-mediumThreeByTwo210.jpg") }
+                                                                                           bigPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("superJumbo") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-mediumThreeByTwo210.jpg") }
                     success(item)
                     case .failure(_):
                         failure()

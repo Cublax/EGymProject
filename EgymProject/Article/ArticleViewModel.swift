@@ -12,19 +12,28 @@ final class ArticleViewModel {
     
     // MARK: - Properties
     
+    var article: VisibleArticle
+    
+    private weak var delegate: ArticleViewModelDelegate?
+    
     // MARK: - Initializer
     
-    init() {
-        
+    init(article: VisibleArticle, delegate: ArticleViewModelDelegate?) {
+        self.article = article
+        self.delegate = delegate
     }
     // MARK: - Outputs
     
+     var visibleArticle: ((VisibleArticle) -> Void)?
+    
     func viewDidLoad() {
-        
+        visibleArticle?(article)
     }
     
-    
-    
     // MARK: - Inputs
+    
+    func openWebView() {
+     //   delega
+    }
     
 }

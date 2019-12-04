@@ -35,8 +35,9 @@ final class ListingViewModel {
     
     // MARK: - Initializer
     
-    init(repository: ListingRepositoryType,delegate: ListingViewModelDelegate?) {
+    init(repository: ListingRepositoryType, delegate: ListingViewModelDelegate?) {
         self.repository = repository
+        self.delegate = delegate
     }
     // MARK: - Outputs
     

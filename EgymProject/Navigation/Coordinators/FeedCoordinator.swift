@@ -36,7 +36,12 @@ final class FeedCoordinator {
         presenter.viewControllers = [viewController]
     }
     
-    func showAlert(for type: AlertType) {
+    private func showArticleViewController(for article: VisibleArticle) {
+        let viewController = screens.createArticleViewController(delegate: self, article: article)
+        presenter.viewControllers = [viewController]
+    }
+    
+    private func showAlert(for type: AlertType) {
         let alert = screens.createAlert(for: type)
         presenter.visibleViewController?.present(alert, animated: true, completion: nil)
     }
@@ -44,10 +49,16 @@ final class FeedCoordinator {
 
 extension FeedCoordinator: ListingViewModelDelegate {
     func didSelectArticle(article: VisibleArticle) {
-    
+        showArticleViewController(for: article)
     }
     
     func shouldDisplayAlert(for type: AlertType) {
         showAlert(for: type)
+    }
+}
+
+extension FeedCoordinator: ArticleViewModelDelegate {
+    func showFullArticle(for link: String) {
+        
     }
 }
