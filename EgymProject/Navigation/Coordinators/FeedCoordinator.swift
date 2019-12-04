@@ -16,7 +16,7 @@ final class FeedCoordinator {
     
     private let screens: Screens
     
-    private let source = "home"
+    private let category = "home"
     
     // MARK: - Initializer
     
@@ -32,7 +32,7 @@ final class FeedCoordinator {
     }
     
     private func showFeedViewController() {
-        let viewController = screens.createHomeViewController(delegate: self, source: source)
+        let viewController = screens.createListingViewController(delegate: self, category: category)
         presenter.viewControllers = [viewController]
     }
     
@@ -43,7 +43,7 @@ final class FeedCoordinator {
 }
 
 extension FeedCoordinator: ListingViewModelDelegate {
-    func didSelectArticle(recipe: VisibleArticle) {
+    func didSelectArticle(article: VisibleArticle) {
     
     }
     

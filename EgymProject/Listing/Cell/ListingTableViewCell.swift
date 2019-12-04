@@ -50,5 +50,4 @@ final class ListingTableViewCell: UITableViewCell {
         articleNameLabel.text = nil
         authorNameLabel.text = nil
     }
-    
 }

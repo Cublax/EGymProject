@@ -57,6 +57,6 @@ final class ListingViewModel {
     // MARK: - Inputs
     
     func didSelectArticle(with article: VisibleArticle) {
-        delegate?.didSelectArticle(recipe: article)
+        delegate?.didSelectArticle(article: article)
     }
 }

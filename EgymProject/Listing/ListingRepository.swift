@@ -17,7 +17,7 @@ final class ListingRepository: ListingRepositoryType {
     
     // MARK: - Properties
     
-    private let source: String
+    private let category: String
     
     private let networkClient: HTTPClient
     
@@ -27,15 +27,15 @@ final class ListingRepository: ListingRepositoryType {
     
     // MARK: - Initializer
     
-    init(networkClient: HTTPClient, source: String) {
+    init(networkClient: HTTPClient, category: String) {
         self.networkClient = networkClient
-        self.source = source
+        self.category = category
     }
     
     // MARK: - Requests
     
     func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void)) {
-        let myurl: String = "https://api.nytimes.com/svc/topstories/v2/\(source).json?api-key=jGNtGsUTozACEcGEtLEW8xQKAa95gPqb"
+        let myurl: String = "https://api.nytimes.com/svc/topstories/v2/\(category).json?api-key=jGNtGsUTozACEcGEtLEW8xQKAa95gPqb"
             
             guard let url = URL(string: myurl) else {return}
             

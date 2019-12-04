@@ -25,14 +25,14 @@ final class Screens {
 // MARK: - ListingViewController
 
 protocol ListingViewModelDelegate: class {
-    func didSelectArticle(recipe: VisibleArticle)
+    func didSelectArticle(article: VisibleArticle)
     func shouldDisplayAlert(for type: AlertType)
 }
 
 extension Screens {
-    func createHomeViewController(delegate: ListingViewModelDelegate?, source: String) -> UIViewController {
+    func createListingViewController(delegate: ListingViewModelDelegate?, category: String) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
-        let repository = ListingRepository(networkClient: context.networkClient, source: source)
+        let repository = ListingRepository(networkClient: context.networkClient, category: category)
         let viewModel = ListingViewModel(repository: repository,
                                          delegate: delegate)
         viewController.viewModel = viewModel
@@ -43,10 +43,15 @@ extension Screens {
 
 // MARK: - CategoriesViewController
 
+protocol CategoriesViewModelDelegate: class {
+    func didSelectCategory(category: String)
+}
+
 extension Screens {
-    func createCategoriesViewController() -> UIViewController {
+    func createCategoriesViewController(delegate: CategoriesViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "CategoriesViewController") as! CategoriesViewController
-        let viewModel = CategoriesViewModel()
+        let repository = CategoriesRepository()
+        let viewModel = CategoriesViewModel(repository: repository, delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }
