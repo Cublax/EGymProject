@@ -14,8 +14,8 @@ struct VisibleArticle: Equatable {
     let author: String
     let subTitle: String
     let urlArticle: String
-    let smallPictureUrl: String
-    let bigPictureUrl: String
+    let smallPictureUrl: String?
+    let bigPictureUrl: String?
 }
 
 final class ListingViewModel {

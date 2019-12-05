@@ -34,7 +34,9 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="75" id="CDr-bs-j1m"/>
-                                                                <constraint firstAttribute="height" constant="75" id="dMZ-x1-MoZ"/>
+                                                                <constraint firstAttribute="height" constant="75" id="dMZ-x1-MoZ">
+                                                                    <variation key="widthClass=regular" constant="60"/>
+                                                                </constraint>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="29x-FK-NPd">

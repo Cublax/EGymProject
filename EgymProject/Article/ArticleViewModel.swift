@@ -25,6 +25,7 @@ final class ArticleViewModel {
         self.delegate = delegate
         self.repository = repository
     }
+    
     // MARK: - Outputs
     
     var visibleArticle: ((VisibleArticle) -> Void)?

@@ -41,7 +41,7 @@ class ArticleViewController: UIViewController {
     private func bind(to viewModel: ArticleViewModel) {
         viewModel.visibleArticle = { [weak self] article in
             DispatchQueue.main.async {
-                self?.configureImage(with: article.bigPictureUrl)
+                self?.configureImage(with: article.bigPictureUrl ?? "")
                 self?.navigationBar.title = article.category
                 self?.titleLabel.text = article.title
                 self?.authorLabel.text = article.author
@@ -68,9 +68,9 @@ class ArticleViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: bookmark, style: .done, target: self, action: #selector(didPressFavorite))
     }
     
-    private func configureImage(with url: String) {
+    private func configureImage(with stringUrl: String) {
         cancellationToken = RequestCancellationToken()
-        guard let url = URL(string: url) else { return }
+        guard let url = URL(string: stringUrl) else { return }
         imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
             DispatchQueue.main.async {
                 self?.articleImageView.image = image

@@ -36,11 +36,14 @@ final class ListingTableViewCell: UITableViewCell {
         self.articleNameLabel.text = article.title
         self.authorNameLabel.text = article.author
         cancellationToken = RequestCancellationToken()
-        guard let url = URL(string: article.smallPictureUrl) else { return }
-        imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
-            DispatchQueue.main.async {
-                self?.articleImageView.image = image
+        if let stringUrl = article.smallPictureUrl, let url = URL(string: stringUrl) {
+            imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.articleImageView.image = image
+                }
             }
+        } else {
+//            self?.articleImageView.image = UIi
         }
     }
     

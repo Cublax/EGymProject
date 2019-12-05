@@ -47,13 +47,7 @@ final class ListingRepository: ListingRepositoryType {
                 .processCodableResponse { (response: HTTPResponse<ATopStories>) in
                     switch response.result {
                     case .success(let response):
-                        let item: [VisibleArticle] = response.results.map { VisibleArticle(category: $0.section,
-                                                                                           title: $0.title,
-                                                                                           author: $0.byline,
-                                                                                           subTitle: $0.abstract,
-                                                                                           urlArticle: $0.url,
-                                                                                           smallPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("Standard Thumbnail") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-thumbStandard.jpg",
-                                                                                           bigPictureUrl: $0.multimedia.filter { $0.format.rawValue.contains("superJumbo") }.map { $0.url }.first ?? "https://static01.nyt.com/images/2019/10/14/business/00CHINA-DNA1/00CHINA-DNA1-superJumbo.jpg") }
+                        let item: [VisibleArticle] = response.results.map { VisibleArticle(result: $0) }
                     success(item)
                     case .failure(_):
                         failure()
@@ -83,4 +77,18 @@ final class FavoriteListingRepository: ListingRepositoryType {
         }
         success(item)
     }
+}
+
+extension VisibleArticle {
+    init(result: AResult) {
+        self.category = result.section
+        self.title = result.title
+        self.author = result.byline
+        self.subTitle = result.abstract
+        self.urlArticle = result.url
+        self.smallPictureUrl = result.multimedia.filter { $0.format.rawValue.contains("Standard Thumbnail") }.map { $0.url }.first
+        self.bigPictureUrl = result.multimedia.filter { $0.format.rawValue.contains("superJumbo") }.map { $0.url }.first 
+    }
+
+    
 }
