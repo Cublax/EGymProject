@@ -14,7 +14,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet private weak var webView: WKWebView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     

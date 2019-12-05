@@ -13,7 +13,6 @@ protocol ListingRepositoryType {
     func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void))
 }
 
-
 final class ListingRepository: ListingRepositoryType {
     
     // MARK: - Properties
@@ -37,24 +36,24 @@ final class ListingRepository: ListingRepositoryType {
     
     func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void)) {
         let myurl: String = "https://api.nytimes.com/svc/topstories/v2/\(category).json?api-key=jGNtGsUTozACEcGEtLEW8xQKAa95gPqb"
-            
-            guard let url = URL(string: myurl) else {return}
-            
-            let urlRequest = URLRequest(url: url)
-            
-            networkClient
-                .executeTask(urlRequest, cancelledBy: cancellationToken)
-                .processCodableResponse { (response: HTTPResponse<ATopStories>) in
-                    switch response.result {
-                    case .success(let response):
-                        let item: [VisibleArticle] = response.results.map { VisibleArticle(result: $0) }
+        
+        guard let url = URL(string: myurl) else {return}
+        
+        let urlRequest = URLRequest(url: url)
+        
+        networkClient
+            .executeTask(urlRequest, cancelledBy: cancellationToken)
+            .processCodableResponse { (response: HTTPResponse<ATopStories>) in
+                switch response.result {
+                case .success(let response):
+                    let item: [VisibleArticle] = response.results.map { VisibleArticle(result: $0) }
                     success(item)
-                    case .failure(_):
-                        failure()
-                    }
-            }
+                case .failure(_):
+                    failure()
+                }
         }
     }
+}
 
 final class FavoriteListingRepository: ListingRepositoryType {
     
@@ -89,6 +88,4 @@ extension VisibleArticle {
         self.smallPictureUrl = result.multimedia.filter { $0.format.rawValue.contains("Standard Thumbnail") }.map { $0.url }.first
         self.bigPictureUrl = result.multimedia.filter { $0.format.rawValue.contains("superJumbo") }.map { $0.url }.first 
     }
-
-    
 }

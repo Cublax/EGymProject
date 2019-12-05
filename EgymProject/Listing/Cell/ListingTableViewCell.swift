@@ -12,9 +12,9 @@ final class ListingTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var articleImageView: UIImageView!
-    @IBOutlet weak var articleNameLabel: UILabel!
-    @IBOutlet weak var authorNameLabel: UILabel!
+    @IBOutlet private weak var articleImageView: UIImageView!
+    @IBOutlet private weak var articleNameLabel: UILabel!
+    @IBOutlet private weak var authorNameLabel: UILabel!
     
     // MARK: - Private properties
     
@@ -40,12 +40,10 @@ final class ListingTableViewCell: UITableViewCell {
             imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
                 DispatchQueue.main.async {
                     self?.articleImageView.image = image
-                }
-            }
-        } else {
-//            self?.articleImageView.image = UIi
-        }
-    }
+                }}} else {
+            DispatchQueue.main.async {
+                self.articleImageView.image = UIImage(named: "default small image")
+            }}}
     
     override func prepareForReuse() {
         cancellationToken = nil

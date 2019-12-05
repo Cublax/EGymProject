@@ -157,9 +157,9 @@
 		AC0C154123990319005EBE52 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				AC0C153F2399030C005EBE52 /* WebViewViewController.swift */,
-				AC3D7989239909C7006B61C6 /* WebViewViewModel.swift */,
 				AC3D798B23991412006B61C6 /* WebViewRepository.swift */,
+				AC3D7989239909C7006B61C6 /* WebViewViewModel.swift */,
+				AC0C153F2399030C005EBE52 /* WebViewViewController.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -311,12 +311,12 @@
 				AC8C0B2B2391691A008B2006 /* AppDelegate.swift */,
 				AC8C0B2D2391691A008B2006 /* SceneDelegate.swift */,
 				AC8C0B6B23917BE1008B2006 /* Navigation */,
-				AC357CF82398363C00D8C7B7 /* Data */,
 				AC8C0B5C239178BC008B2006 /* Categories */,
 				AC8C0B57239177AE008B2006 /* Listing */,
 				AC8C0B612391799F008B2006 /* Article */,
 				AC0C154123990319005EBE52 /* WebView */,
 				AC56C21023918004003A7B54 /* Images */,
+				AC357CF82398363C00D8C7B7 /* Data */,
 				AC56C21723918097003A7B54 /* Network */,
 				AC6C4731239554A900B4B2F4 /* Alerts */,
 				AC8C0B342391691D008B2006 /* Assets.xcassets */,
@@ -343,10 +343,10 @@
 			children = (
 				AC980F8923954D4700011B56 /* Model */,
 				AC56C2322395410C003A7B54 /* Cell */,
-				AC8C0B55239177A9008B2006 /* ListingViewController.swift */,
-				AC8C0B582391782F008B2006 /* ListingViewModel.swift */,
 				AC980F8523954A3F00011B56 /* ListingDataSource.swift */,
 				AC56C233239547B7003A7B54 /* ListingRepository.swift */,
+				AC8C0B582391782F008B2006 /* ListingViewModel.swift */,
+				AC8C0B55239177A9008B2006 /* ListingViewController.swift */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
@@ -355,10 +355,10 @@
 			isa = PBXGroup;
 			children = (
 				AC5D0E002397A1C300A3F671 /* Cell */,
-				AC8C0B5A239178A9008B2006 /* CategoriesViewController.swift */,
 				AC5D0DFC2397A18700A3F671 /* CategoriesDataSource.swift */,
-				AC8C0B5D239178DE008B2006 /* CategoriesViewModel.swift */,
 				ACC3438B2397AD5200098152 /* CategoriesRepository.swift */,
+				AC8C0B5D239178DE008B2006 /* CategoriesViewModel.swift */,
+				AC8C0B5A239178A9008B2006 /* CategoriesViewController.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -366,9 +366,9 @@
 		AC8C0B612391799F008B2006 /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				AC8C0B5F2391790E008B2006 /* ArticleViewController.swift */,
-				AC8C0B62239179B5008B2006 /* ArticleViewModel.swift */,
 				ACE244AE23983CD900E41EDF /* ArticleRepository.swift */,
+				AC8C0B62239179B5008B2006 /* ArticleViewModel.swift */,
+				AC8C0B5F2391790E008B2006 /* ArticleViewController.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -376,9 +376,9 @@
 		AC8C0B6A23917BCD008B2006 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				AC8C0B6623917BBE008B2006 /* FeedCoordinator.swift */,
-				AC8C0B6423917BB2008B2006 /* CategoriesCoordinator.swift */,
 				AC8C0B6823917BC8008B2006 /* FavoriteCoordinator.swift */,
+				AC8C0B6423917BB2008B2006 /* CategoriesCoordinator.swift */,
+				AC8C0B6623917BBE008B2006 /* FeedCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";

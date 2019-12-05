@@ -36,15 +36,15 @@ final class TabBarSource: TabBarSourceType {
             UITabBarItem.appearance().setTitleTextAttributes([.font: font],
                                                              for: .normal)
         }
-            UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.2134923041, green: 0.2007651627, blue: 0.196667999, alpha: 1)
-            UINavigationBar.appearance().tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            
-            self[.feed].tabBarItem = UITabBarItem(title: "Feed", image: nil, tag: 0)
-            self[.feed].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
-            self[.categories].tabBarItem = UITabBarItem(title: "Categories", image: nil, tag: 0)
-            self[.categories].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
-            self[.favorite].tabBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 1)
-            self[.favorite].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.2134923041, green: 0.2007651627, blue: 0.196667999, alpha: 1)
+        UINavigationBar.appearance().tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        self[.feed].tabBarItem = UITabBarItem(title: "Feed", image: nil, tag: 0)
+        self[.feed].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
+        self[.categories].tabBarItem = UITabBarItem(title: "Categories", image: nil, tag: 0)
+        self[.categories].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
+        self[.favorite].tabBarItem = UITabBarItem(title: "Favorites", image: nil, tag: 0)
+        self[.favorite].tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -16)
     }
 }
 

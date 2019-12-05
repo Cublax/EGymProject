@@ -16,48 +16,43 @@ fileprivate final class MockCategoriesViewModelDelegate: CategoriesViewModelDele
     }
 }
 
+fileprivate final class MockCategoriesRepository: CategoriesRepositoryType {
+    var dico = ["toto": "tutu"]
+    func getCategories(callback: @escaping ([String : String]) -> Void) {
+        callback(dico)
+    }
+}
+
 fileprivate final class CategoriesViewModelTest: XCTestCase {
     
     func testGivenACategorieViewModelWhenViewDidLoadThenVisibleCategoriesSendAnArrayOfKeys() {
         let repository = CategoriesRepository()
         let delegate = MockCategoriesViewModelDelegate()
         let viewModel = CategoriesViewModel(repository: repository, delegate: delegate)
-        let expectation = self.expectation(description: "Array of keys match the expecation")
         
-        let expectedResult: [String] = ["Arts",
-                                        "Automobiles",
-                                        "Books",
-                                        "Business",
-                                        "Fashion",
-                                        "Food",
-                                        "Health",
-                                        "Home",
-                                        "Insider",
-                                        "Magazine",
-                                        "Movies",
-                                        "National",
-                                        "New York Region",
-                                        "Obituaries",
-                                        "Opinion",
-                                        "Politics",
-                                        "Real Estate",
-                                        "Science",
-                                        "Sports",
-                                        "Sunday Review",
-                                        "Technology",
-                                        "Theather",
-                                        "T Magazine",
-                                        "Travel",
-                                        "The Upshot",
-                                        "World"]
         
-        viewModel.visibleCategories = { categories in
-            //XCTAssertEqual(categories, expectedResult)
+        let expectedResult = "arts"
+        
+        viewModel.viewDidLoad()
+        viewModel.didSelectCategory(with: "Arts")
+        
+        XCTAssertEqual(delegate.category, expectedResult)
+    }
+    
+    func testGivenACategorieViewModelWhenViewDidLoadThenVisibleCategorieAreCorrectlyReturned() {
+        let repository = MockCategoriesRepository()
+        let delegate = MockCategoriesViewModelDelegate()
+        let viewModel = CategoriesViewModel(repository: repository, delegate: delegate)
+        let expectation = self.expectation(description: "an array of keys is returned")
+        
+        let expectedResult = ["toto"]
+        
+        viewModel.visibleCategories = { answer in
+            XCTAssertEqual(answer, expectedResult)
             expectation.fulfill()
         }
         
         viewModel.viewDidLoad()
-        
         waitForExpectations(timeout: 1.0, handler: nil)
     }
 }

@@ -22,6 +22,7 @@ final class WebViewViewModel {
         self.article = article
         self.repository = repository
     }
+    
     // MARK: - Outputs
     
     var address: ((String) -> Void)?
@@ -35,7 +36,7 @@ final class WebViewViewModel {
             self.isFavorite?(state)
         }
     }
-
+    
     // MARK: - Inputs
     
     func clickedOnFavorite() {
@@ -50,5 +51,4 @@ final class WebViewViewModel {
             }
         }
     }
-
 }

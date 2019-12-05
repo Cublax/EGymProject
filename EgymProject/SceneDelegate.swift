@@ -28,9 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         imageCache = NSCache<Key, Object>()
         
         let client = HTTPClient(engine: .urlSession(.default))
-        
         let imageRepository = ImageRepository(networkClient: client)
-        
         let imageProvider = ImageProvider(repository: imageRepository,
                                           cache: self.imageCache)
         

@@ -12,14 +12,14 @@ import CoreData
 class ArticleViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet private weak var navigationBar: UINavigationItem!
     
-    @IBOutlet weak var articleImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet private weak var articleImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var subTitleLabel: UILabel!
     
-    @IBOutlet weak var seeMoreButton: UIButton!
+    @IBOutlet private weak var seeMoreButton: UIButton!
     
     // MARK: - Properties
     
@@ -70,13 +70,14 @@ class ArticleViewController: UIViewController {
     
     private func configureImage(with stringUrl: String) {
         cancellationToken = RequestCancellationToken()
-        guard let url = URL(string: stringUrl) else { return }
-        imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
-            DispatchQueue.main.async {
-                self?.articleImageView.image = image
-            }
-        }
-    }
+        if stringUrl != "" {
+            guard let url = URL(string: stringUrl) else { return }
+            imageProvider?.setImage(for: url, cancelledBy: cancellationToken) { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.articleImageView.image = image
+                }}} else {
+            self.articleImageView.image = UIImage(named: "default large image")
+        }}
     
     @objc private func didPressFavorite() {
         viewModel.clickedOnFavorite()

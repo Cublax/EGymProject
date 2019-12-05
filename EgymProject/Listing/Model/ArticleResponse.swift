@@ -11,7 +11,7 @@ import Foundation
 // MARK: - ATopStories
 struct ATopStories: Codable {
     let results: [AResult]
-
+    
     enum CodingKeys: String, CodingKey {
         case results
     }
@@ -25,7 +25,7 @@ struct AResult: Codable {
     let url: String
     let byline: String
     let multimedia: [AMultimedia]
-
+    
     enum CodingKeys: String, CodingKey {
         case section, title, abstract, url, byline
         case multimedia

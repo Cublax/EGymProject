@@ -40,10 +40,10 @@ final class ListingViewModel {
     }
     // MARK: - Outputs
     
-     var visibleArticles: (([VisibleArticle]) -> Void)?
+    var visibleArticles: (([VisibleArticle]) -> Void)?
     
     func viewDidLoad() {
-         refresh()
+        refresh()
     }
     
     private func refresh() {

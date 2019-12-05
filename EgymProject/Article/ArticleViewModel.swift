@@ -39,24 +39,24 @@ final class ArticleViewModel {
             self.isFavorite?(state)
         }
     }
-        
-        // MARK: - Inputs
-        
-        func clickedOnFavorite() {
-            repository.checkIfFavorite(title: article.title) { (favoriteState) in
-                switch favoriteState {
-                case true:
-                    repository.removeFavorite(title: article.title)
-                    isFavorite?(false)
-                case false:
-                    repository.addToFavorite(article: article)
-                    isFavorite?(true)
-                }
+    
+    // MARK: - Inputs
+    
+    func clickedOnFavorite() {
+        repository.checkIfFavorite(title: article.title) { (favoriteState) in
+            switch favoriteState {
+            case true:
+                repository.removeFavorite(title: article.title)
+                isFavorite?(false)
+            case false:
+                repository.addToFavorite(article: article)
+                isFavorite?(true)
             }
         }
-        
-        func openWebView() {
-            delegate?.showFullArticle(for: article)
-        }
     }
+    
+    func openWebView() {
+        delegate?.showFullArticle(for: article)
+    }
+}
 

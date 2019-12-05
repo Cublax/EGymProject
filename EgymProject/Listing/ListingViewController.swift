@@ -12,7 +12,7 @@ class ListingViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
     
@@ -21,8 +21,8 @@ class ListingViewController: UIViewController {
     var imageProvider: ImageProvider!
     
     private lazy var dataSource: ListingDataSource = {
-           return ListingDataSource(imageProvider: imageProvider)
-       }()
+        return ListingDataSource(imageProvider: imageProvider)
+    }()
     
     // MARK: - View life cycle
     
@@ -39,11 +39,11 @@ class ListingViewController: UIViewController {
     
     private func bind(to viewModel: ListingViewModel) {
         viewModel.visibleArticles = { [weak self] articles in
-           DispatchQueue.main.async {
-               self?.dataSource.update(with: articles)
-               self?.tableView.reloadData()
-           }
-       }
+            DispatchQueue.main.async {
+                self?.dataSource.update(with: articles)
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     private func bind(to dataSource: ListingDataSource) {

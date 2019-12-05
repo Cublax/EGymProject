@@ -61,7 +61,8 @@ extension Screens {
     func createCategoriesViewController(delegate: CategoriesViewModelDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "CategoriesViewController") as! CategoriesViewController
         let repository = CategoriesRepository()
-        let viewModel = CategoriesViewModel(repository: repository, delegate: delegate)
+        let viewModel = CategoriesViewModel(repository: repository,
+                                            delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -92,7 +93,8 @@ extension Screens {
     func createWebViewViewController(article: VisibleArticle) -> UIViewController {
         let viewController = storyboard.instantiateViewController(identifier: "WebViewController") as! WebViewController
         let repository = WebViewRepository(stack: context.stack)
-        let viewModel = WebViewViewModel(article: article, repository: repository)
+        let viewModel = WebViewViewModel(article: article,
+                                         repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }

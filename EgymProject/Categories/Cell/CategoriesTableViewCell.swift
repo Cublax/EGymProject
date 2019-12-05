@@ -12,7 +12,7 @@ final class CategoriesTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet private weak var categoryLabel: UILabel!
     
     // MARK: - Configure
     

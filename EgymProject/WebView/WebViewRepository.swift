@@ -19,7 +19,6 @@ final class WebViewRepository: WebViewRepositoryType {
     
     private let stack: CoreDataStack
     
-    
     init(stack: CoreDataStack) {
         self.stack = stack
     }
