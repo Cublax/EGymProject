@@ -55,7 +55,7 @@ final class ArticleViewModel {
         }
         
         func openWebView() {
-            //   delega
+            delegate?.showFullArticle(for: article)
         }
     }
 

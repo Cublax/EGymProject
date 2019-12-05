@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0C15402399030C005EBE52 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C153F2399030C005EBE52 /* WebViewViewController.swift */; };
 		AC357CFB2398366200D8C7B7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC357CF92398366200D8C7B7 /* Model.xcdatamodeld */; };
 		AC357CFD2398383500D8C7B7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC357CFC2398383500D8C7B7 /* CoreDataStack.swift */; };
 		AC357CFF2398387600D8C7B7 /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC357CFE2398387600D8C7B7 /* ArticleEntity.swift */; };
+		AC3D798A239909C7006B61C6 /* WebViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D7989239909C7006B61C6 /* WebViewViewModel.swift */; };
+		AC3D798C23991412006B61C6 /* WebViewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3D798B23991412006B61C6 /* WebViewRepository.swift */; };
 		AC56C20F23917FF2003A7B54 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56C20E23917FF2003A7B54 /* ImageProvider.swift */; };
 		AC56C21223918023003A7B54 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56C21123918023003A7B54 /* ImageRepository.swift */; };
 		AC56C21623918087003A7B54 /* JSONBodyEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56C21523918087003A7B54 /* JSONBodyEncoder.swift */; };
@@ -65,9 +68,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0C153F2399030C005EBE52 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		AC357CFA2398366200D8C7B7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		AC357CFC2398383500D8C7B7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		AC357CFE2398387600D8C7B7 /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
+		AC3D7989239909C7006B61C6 /* WebViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewModel.swift; sourceTree = "<group>"; };
+		AC3D798B23991412006B61C6 /* WebViewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepository.swift; sourceTree = "<group>"; };
 		AC56C20E23917FF2003A7B54 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		AC56C21123918023003A7B54 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		AC56C21523918087003A7B54 /* JSONBodyEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONBodyEncoder.swift; sourceTree = "<group>"; };
@@ -134,6 +140,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC0C154123990319005EBE52 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C153F2399030C005EBE52 /* WebViewViewController.swift */,
+				AC3D7989239909C7006B61C6 /* WebViewViewModel.swift */,
+				AC3D798B23991412006B61C6 /* WebViewRepository.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		AC357CF82398363C00D8C7B7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +257,7 @@
 				AC8C0B5C239178BC008B2006 /* Categories */,
 				AC8C0B57239177AE008B2006 /* Listing */,
 				AC8C0B612391799F008B2006 /* Article */,
+				AC0C154123990319005EBE52 /* WebView */,
 				AC56C21023918004003A7B54 /* Images */,
 				AC56C21723918097003A7B54 /* Network */,
 				AC6C4731239554A900B4B2F4 /* Alerts */,
@@ -382,7 +399,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "EgymProject" */;
+			buildConfigurationList = AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "NewYorkTimesBestStories" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -433,6 +450,7 @@
 				AC8C0B5B239178A9008B2006 /* CategoriesViewController.swift in Sources */,
 				AC8C0B4E23916D87008B2006 /* Context.swift in Sources */,
 				AC357CFD2398383500D8C7B7 /* CoreDataStack.swift in Sources */,
+				AC3D798C23991412006B61C6 /* WebViewRepository.swift in Sources */,
 				AC56C23123954107003A7B54 /* ListingTableViewCell.swift in Sources */,
 				AC56C234239547B7003A7B54 /* ListingRepository.swift in Sources */,
 				AC8C0B602391790E008B2006 /* ArticleViewController.swift in Sources */,
@@ -454,6 +472,7 @@
 				AC56C22923918231003A7B54 /* ExecutableRequest.swift in Sources */,
 				AC56C21223918023003A7B54 /* ImageRepository.swift in Sources */,
 				AC980F8623954A3F00011B56 /* ListingDataSource.swift in Sources */,
+				AC0C15402399030C005EBE52 /* WebViewViewController.swift in Sources */,
 				ACE244AF23983CD900E41EDF /* ArticleRepository.swift in Sources */,
 				AC56C21D23918170003A7B54 /* URLSessionEngine.swift in Sources */,
 				AC8C0B6723917BBE008B2006 /* FeedCoordinator.swift in Sources */,
@@ -463,6 +482,7 @@
 				AC8C0B6523917BB2008B2006 /* CategoriesCoordinator.swift in Sources */,
 				AC980F8823954D4400011B56 /* ArticleResponse.swift in Sources */,
 				AC56C225239181FD003A7B54 /* HTTPRequest.swift in Sources */,
+				AC3D798A239909C7006B61C6 /* WebViewViewModel.swift in Sources */,
 				AC8C0B2E2391691A008B2006 /* SceneDelegate.swift in Sources */,
 				AC8C0B592391782F008B2006 /* ListingViewModel.swift in Sources */,
 				AC5D0DFD2397A18700A3F671 /* CategoriesDataSource.swift in Sources */,
@@ -705,7 +725,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "EgymProject" */ = {
+		AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "NewYorkTimesBestStories" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC8C0B452391691E008B2006 /* Debug */,

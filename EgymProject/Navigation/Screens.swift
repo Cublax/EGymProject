@@ -70,7 +70,7 @@ extension Screens {
 // MARK: - ArticleViewController
 
 protocol ArticleViewModelDelegate: class {
-    func showFullArticle(for link: String)
+    func showFullArticle(for article: VisibleArticle)
 }
 
 extension Screens {
@@ -82,6 +82,18 @@ extension Screens {
                                          repository: repository)
         viewController.viewModel = viewModel
         viewController.imageProvider = context.imageProvider
+        return viewController
+    }
+}
+
+// MARK: - WebViewViewController
+
+extension Screens {
+    func createWebViewViewController(article: VisibleArticle) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(identifier: "WebViewController") as! WebViewController
+        let repository = WebViewRepository(stack: context.stack)
+        let viewModel = WebViewViewModel(article: article, repository: repository)
+        viewController.viewModel = viewModel
         return viewController
     }
 }

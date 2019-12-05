@@ -256,5 +256,49 @@
             </objects>
             <point key="canvasLocation" x="817.39130434782612" y="-36.160714285714285"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="VDh-Kf-1fT">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="6cF-oc-WBK" customClass="WebViewController" customModule="EgymProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ngu-jV-u1p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5J-yc-hPn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9VW-0Q-49M">
+                                <rect key="frame" x="194.5" y="435.5" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Cut-L5-JlI"/>
+                                    <constraint firstAttribute="width" constant="25" id="VQO-Rt-Xzd"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9VW-0Q-49M" firstAttribute="centerX" secondItem="ngu-jV-u1p" secondAttribute="centerX" id="1Ns-qS-KVr"/>
+                            <constraint firstItem="9VW-0Q-49M" firstAttribute="centerY" secondItem="ngu-jV-u1p" secondAttribute="centerY" id="J07-Cg-a30"/>
+                            <constraint firstItem="L2M-mT-pie" firstAttribute="bottom" secondItem="B5J-yc-hPn" secondAttribute="bottom" id="U3z-pc-hd7"/>
+                            <constraint firstItem="L2M-mT-pie" firstAttribute="trailing" secondItem="B5J-yc-hPn" secondAttribute="trailing" id="ZHe-4j-ofQ"/>
+                            <constraint firstItem="B5J-yc-hPn" firstAttribute="top" secondItem="L2M-mT-pie" secondAttribute="top" id="Zce-fJ-ecF"/>
+                            <constraint firstItem="B5J-yc-hPn" firstAttribute="leading" secondItem="L2M-mT-pie" secondAttribute="leading" id="vQA-8l-qf3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L2M-mT-pie"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="9VW-0Q-49M" id="qFt-so-icU"/>
+                        <outlet property="webView" destination="B5J-yc-hPn" id="sqS-s0-cIx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVn-ft-E25" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="-35"/>
+        </scene>
     </scenes>
 </document>

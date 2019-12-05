@@ -41,6 +41,11 @@ final class FeedCoordinator {
         presenter.show(viewController, sender: nil)
     }
     
+    private func showWebViewController(for article: VisibleArticle) {
+        let viewController = screens.createWebViewViewController(article: article)
+        presenter.show(viewController, sender: nil)
+    }
+    
     private func showAlert(for type: AlertType) {
         let alert = screens.createAlert(for: type)
         presenter.visibleViewController?.present(alert, animated: true, completion: nil)
@@ -58,7 +63,7 @@ extension FeedCoordinator: ListingViewModelDelegate {
 }
 
 extension FeedCoordinator: ArticleViewModelDelegate {
-    func showFullArticle(for link: String) {
-        
+    func showFullArticle(for article: VisibleArticle) {
+        showWebViewController(for: article)
     }
 }

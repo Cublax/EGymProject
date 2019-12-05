@@ -44,6 +44,11 @@ final class CategoriesCoordinator {
         presenter.show(viewController, sender: nil)
     }
     
+    private func showWebViewController(for article: VisibleArticle) {
+        let viewController = screens.createWebViewViewController(article: article)
+        presenter.show(viewController, sender: nil)
+    }
+    
     func showAlert(for type: AlertType) {
         let alert = screens.createAlert(for: type)
         presenter.visibleViewController?.present(alert, animated: true, completion: nil)
@@ -67,7 +72,7 @@ extension CategoriesCoordinator: ListingViewModelDelegate {
 }
 
 extension CategoriesCoordinator: ArticleViewModelDelegate {
-    func showFullArticle(for link: String) {
-        
+    func showFullArticle(for article: VisibleArticle) {
+        showWebViewController(for: article)
     }
 }

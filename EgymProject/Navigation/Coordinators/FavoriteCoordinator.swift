@@ -39,6 +39,11 @@ final class FavoriteCoordinator {
         presenter.show(viewController, sender: nil)
     }
     
+    private func showWebViewController(for article: VisibleArticle) {
+        let viewController = screens.createWebViewViewController(article: article)
+        presenter.show(viewController, sender: nil)
+    }
+    
     private func showAlert(for type: AlertType) {
         let alert = screens.createAlert(for: type)
         presenter.visibleViewController?.present(alert, animated: true, completion: nil)
@@ -56,8 +61,8 @@ extension FavoriteCoordinator: ListingViewModelDelegate {
 }
 
 extension FavoriteCoordinator: ArticleViewModelDelegate {
-    func showFullArticle(for link: String) {
-        
+    func showFullArticle(for article: VisibleArticle) {
+        showWebViewController(for: article)
     }
 }
 
