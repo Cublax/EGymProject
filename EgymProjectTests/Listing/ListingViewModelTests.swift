@@ -10,15 +10,27 @@ import XCTest
 @testable import EgymProject
 
 fileprivate final class MockListingRepository: ListingRepositoryType {
-    var article = [VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")]
+    var article = [VisibleArticle(category: "1",
+                                  title: "1",
+                                  author: "1",
+                                  subTitle: "1",
+                                  urlArticle: "1",
+                                  smallPictureUrl: "1",
+                                  bigPictureUrl: "1")]
     func getArticles(success: @escaping ([VisibleArticle]) -> Void, failure: @escaping (() -> Void)) {
         success(article)
     }
 }
 
 fileprivate final class MockListingViewModelDelegate: ListingViewModelDelegate {
-    var article = VisibleArticle(category: "", title: "", author: "", subTitle: "", urlArticle: "", smallPictureUrl: "", bigPictureUrl: "")
-       var alert: AlertType? = nil
+    var article = VisibleArticle(category: "",
+                                 title: "",
+                                 author: "",
+                                 subTitle: "",
+                                 urlArticle: "",
+                                 smallPictureUrl: "",
+                                 bigPictureUrl: "")
+    var alert: AlertType? = nil
     
     func didSelectArticle(article: VisibleArticle) {
         self.article = article
@@ -31,20 +43,32 @@ fileprivate final class MockListingViewModelDelegate: ListingViewModelDelegate {
 
 
 fileprivate final class ListingViewModelTests: XCTestCase {
-
+    
     func testGivenAListingViewModelWhenDidSelectAnArticleThenDelegateIsCorrectlyCalled() {
-        let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
+        
         let repository = MockListingRepository()
         let delegate = MockListingViewModelDelegate()
-        let viewModel = ListingViewModel(repository: repository, delegate: delegate)
+        let viewModel = ListingViewModel(repository: repository,
+                                         delegate: delegate)
         
-        let expectedResult = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let expectedResult = VisibleArticle(category: "1",
+                                            title: "1",
+                                            author: "1",
+                                            subTitle: "1",
+                                            urlArticle: "1",
+                                            smallPictureUrl: "1",
+                                            bigPictureUrl: "1")
         
-         viewModel.viewDidLoad()
+        viewModel.viewDidLoad()
         viewModel.didSelectArticle(with: article)
         
         XCTAssertEqual(delegate.article, expectedResult)
     }
-
-
 }

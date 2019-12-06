@@ -31,7 +31,7 @@ protocol ListingViewModelDelegate: class {
 
 extension Screens {
     func createListingViewController(delegate: ListingViewModelDelegate?, category: String) -> UIViewController {
-        let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ListingViewController") as! ListingViewController
         let repository = ListingRepository(networkClient: context.networkClient, category: category)
         let viewModel = ListingViewModel(repository: repository,
                                          delegate: delegate)
@@ -41,7 +41,7 @@ extension Screens {
     }
     
     func createFavoriteListingViewController(delegate: ListingViewModelDelegate?) -> UIViewController {
-        let viewController = storyboard.instantiateViewController(identifier: "ListingViewController") as! ListingViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ListingViewController") as! ListingViewController
         let repository = FavoriteListingRepository(stack: context.stack)
         let viewModel = ListingViewModel(repository: repository,
                                          delegate: delegate)
@@ -59,7 +59,7 @@ protocol CategoriesViewModelDelegate: class {
 
 extension Screens {
     func createCategoriesViewController(delegate: CategoriesViewModelDelegate?) -> UIViewController {
-        let viewController = storyboard.instantiateViewController(identifier: "CategoriesViewController") as! CategoriesViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "CategoriesViewController") as! CategoriesViewController
         let repository = CategoriesRepository()
         let viewModel = CategoriesViewModel(repository: repository,
                                             delegate: delegate)
@@ -76,7 +76,7 @@ protocol ArticleViewModelDelegate: class {
 
 extension Screens {
     func createArticleViewController(delegate: ArticleViewModelDelegate?, article: VisibleArticle) -> UIViewController {
-        let viewController = storyboard.instantiateViewController(identifier: "ArticleViewController") as! ArticleViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
         let repository = ArticleRepository(stack: context.stack)
         let viewModel = ArticleViewModel(article: article,
                                          delegate: delegate,
@@ -91,7 +91,7 @@ extension Screens {
 
 extension Screens {
     func createWebViewViewController(article: VisibleArticle) -> UIViewController {
-        let viewController = storyboard.instantiateViewController(identifier: "WebViewController") as! WebViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
         let repository = WebViewRepository(stack: context.stack)
         let viewModel = WebViewViewModel(article: article,
                                          repository: repository)

@@ -28,7 +28,8 @@ fileprivate final class CategoriesViewModelTest: XCTestCase {
     func testGivenACategorieViewModelWhenViewDidLoadThenVisibleCategoriesSendAnArrayOfKeys() {
         let repository = CategoriesRepository()
         let delegate = MockCategoriesViewModelDelegate()
-        let viewModel = CategoriesViewModel(repository: repository, delegate: delegate)
+        let viewModel = CategoriesViewModel(repository: repository,
+                                            delegate: delegate)
         
         
         let expectedResult = "arts"
@@ -42,7 +43,9 @@ fileprivate final class CategoriesViewModelTest: XCTestCase {
     func testGivenACategorieViewModelWhenViewDidLoadThenVisibleCategorieAreCorrectlyReturned() {
         let repository = MockCategoriesRepository()
         let delegate = MockCategoriesViewModelDelegate()
-        let viewModel = CategoriesViewModel(repository: repository, delegate: delegate)
+        let viewModel = CategoriesViewModel(repository: repository,
+                                            delegate: delegate)
+        
         let expectation = self.expectation(description: "an array of keys is returned")
         
         let expectedResult = ["toto"]

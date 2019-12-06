@@ -7,7 +7,9 @@ It is also possible to save you favorite articles with the help of CoreData.
 
 The architecture of this project is following the rules of the MVVM-C pattern, if you are willing to see more about my comprehension of it, I encourage you to read the article I published on Medium at this address : https://medium.com/better-programming/the-art-of-mvvm-c-pattern-6fb9def2bb66
 
-The logic of the App is 100% tested (ViewModel's). Press cmd + U and dive into the magic green land. 🧝‍♂️
+The logic of the App is 100% tested (ViewModel's). 
+Network, Image Provider and the repositories and almost fully tested.
+Press cmd + U and dive into the magic green land. 🧝‍♂️
 
 The App is built in 3 tabs :
 

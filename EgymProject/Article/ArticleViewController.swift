@@ -55,8 +55,8 @@ class ArticleViewController: UIViewController {
     }
     
     private func setFavorite(favorite: Bool) {
-        guard let selected = UIImage(systemName: "bookmark.fill") else { return }
-        guard let unselected = UIImage(systemName: "bookmark") else { return }
+        guard let selected = UIImage(named: "bookmark.fill") else { return }
+        guard let unselected = UIImage(named: "bookmark") else { return }
         var bookmark: UIImage
         
         switch favorite {

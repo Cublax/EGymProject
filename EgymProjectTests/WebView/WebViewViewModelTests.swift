@@ -10,8 +10,8 @@ import XCTest
 @testable import EgymProject
 
 fileprivate final class MockWebViewRepository1: WebViewRepositoryType {
-    
     var favorite = true
+    
     func addToFavorite(article: VisibleArticle) {
     }
     
@@ -24,8 +24,8 @@ fileprivate final class MockWebViewRepository1: WebViewRepositoryType {
 }
 
 fileprivate final class MockWebViewRepository2: WebViewRepositoryType {
-    
     var favorite = false
+    
     func addToFavorite(article: VisibleArticle) {
     }
     
@@ -40,9 +40,16 @@ fileprivate final class MockWebViewRepository2: WebViewRepositoryType {
 fileprivate final class RecipeViewModelTests: XCTestCase {
     
     func testGivenAWebViewViewModelWhenAViewDidLoadThenGetInformationIfFavorite() {
-        let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
         let repository = MockWebViewRepository1()
         let viewModel = WebViewViewModel(article: article, repository: repository)
+        
         let expectation = self.expectation(description: "Returned true")
         
         viewModel.isFavorite = { answer in
@@ -55,7 +62,13 @@ fileprivate final class RecipeViewModelTests: XCTestCase {
     }
     
     func testGivenAWebViewViewModelWhenclickedOnFavoriteThenIsFavoriteReturnFalse() {
-       let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
         let repository = MockWebViewRepository1()
         let viewModel = WebViewViewModel(article: article, repository: repository)
         
@@ -77,7 +90,13 @@ fileprivate final class RecipeViewModelTests: XCTestCase {
     }
     
     func testGivenAWebViewViewModelWhenclickedOnFavoriteThenIsFavoriteReturnTrue() {
-        let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
         let repository = MockWebViewRepository2()
         let viewModel = WebViewViewModel(article: article, repository: repository)
         

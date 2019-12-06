@@ -10,8 +10,8 @@ import XCTest
 @testable import EgymProject
 
 fileprivate final class MockArticleRepository1: ArticleRepositoryType {
-    
     var favorite = true
+    
     func addToFavorite(article: VisibleArticle) {
     }
     
@@ -24,8 +24,8 @@ fileprivate final class MockArticleRepository1: ArticleRepositoryType {
 }
 
 fileprivate final class MockArticleRepository2: ArticleRepositoryType {
-    
     var favorite = false
+    
     func addToFavorite(article: VisibleArticle) {
     }
     
@@ -38,7 +38,14 @@ fileprivate final class MockArticleRepository2: ArticleRepositoryType {
 }
 
 fileprivate final class MockArticleRepositoryDelegate: ArticleViewModelDelegate {
-    var article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+    var article = VisibleArticle(category: "1",
+                                 title: "1",
+                                 author: "1",
+                                 subTitle: "1",
+                                 urlArticle: "1",
+                                 smallPictureUrl: "1",
+                                 bigPictureUrl: "1")
+    
     func showFullArticle(for article: VisibleArticle) {
         self.article = article
     }
@@ -47,10 +54,20 @@ fileprivate final class MockArticleRepositoryDelegate: ArticleViewModelDelegate 
 fileprivate final class ArticleViewModelTests: XCTestCase {
     
     func testGivenAnArticleViewModelWhenAViewDidLoadThenGetInformationIfFavorite() {
-        let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
+        
         let repository = MockArticleRepository1()
         let delegate = MockArticleRepositoryDelegate()
-        let viewModel = ArticleViewModel(article: article, delegate: delegate, repository: repository)
+        let viewModel = ArticleViewModel(article: article,
+                                         delegate: delegate,
+                                         repository: repository)
+        
         let expectation = self.expectation(description: "Returned true")
         
         viewModel.isFavorite = { answer in
@@ -63,10 +80,19 @@ fileprivate final class ArticleViewModelTests: XCTestCase {
     }
     
     func testGivenAnArticleViewModelWhenclickedOnFavoriteThenIsFavoriteReturnFalse() {
-       let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
+        
         let repository = MockArticleRepository1()
         let delegate = MockArticleRepositoryDelegate()
-        let viewModel = ArticleViewModel(article: article, delegate: delegate, repository: repository)
+        let viewModel = ArticleViewModel(article: article,
+                                         delegate: delegate,
+                                         repository: repository)
         
         let expectation = self.expectation(description: "Returned true")
         
@@ -86,10 +112,19 @@ fileprivate final class ArticleViewModelTests: XCTestCase {
     }
     
     func testGivenAnArticleViewModelWhenclickedOnFavoriteThenIsFavoriteReturnTrue() {
-        let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
+        
         let repository = MockArticleRepository2()
         let delegate = MockArticleRepositoryDelegate()
-        let viewModel = ArticleViewModel(article: article, delegate: delegate, repository: repository)
+        let viewModel = ArticleViewModel(article: article,
+                                         delegate: delegate,
+                                         repository: repository)
         
         let expectation = self.expectation(description: "Returned true")
         
@@ -109,14 +144,29 @@ fileprivate final class ArticleViewModelTests: XCTestCase {
     }
     
     func testGivenAnArticleViewModelWhenCallFuncOpenWebViewThenDelegateIsCorrectlyCalled() {
-        let article = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let article = VisibleArticle(category: "1",
+                                     title: "1",
+                                     author: "1",
+                                     subTitle: "1",
+                                     urlArticle: "1",
+                                     smallPictureUrl: "1",
+                                     bigPictureUrl: "1")
+        
         let repository = MockArticleRepository1()
         let delegate = MockArticleRepositoryDelegate()
-        let viewModel = ArticleViewModel(article: article, delegate: delegate, repository: repository)
+        let viewModel = ArticleViewModel(article: article,
+                                         delegate: delegate,
+                                         repository: repository)
         
-        let expectedResult = VisibleArticle(category: "1", title: "1", author: "1", subTitle: "1", urlArticle: "1", smallPictureUrl: "1", bigPictureUrl: "1")
+        let expectedResult = VisibleArticle(category: "1",
+                                            title: "1",
+                                            author: "1",
+                                            subTitle: "1",
+                                            urlArticle: "1",
+                                            smallPictureUrl: "1",
+                                            bigPictureUrl: "1")
         
-         viewModel.viewDidLoad()
+        viewModel.viewDidLoad()
         viewModel.openWebView()
         
         XCTAssertEqual(delegate.article, expectedResult)
