@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:EgymProject.xcodeproj">
+      location = "self:/Users/Alexandre/Developer/Swift/Swift 5.1/EgymProject/EgymProject.xcodeproj">
    </FileRef>
 </Workspace>
