@@ -55,18 +55,17 @@ class ArticleViewController: UIViewController {
     }
     
     private func setFavorite(favorite: Bool) {
-        let selected = "★"
-        let unselected = "☆"
-        var bookmark: String
-        
-        switch favorite {
-        case true:
-            bookmark = selected
-        case false:
-            bookmark = unselected
-        }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: bookmark, style: .done, target: self, action: #selector(didPressFavorite))
-       // self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: bookmark, style: .done, target: self, action: #selector(didPressFavorite))
+         guard let selected = UIImage(systemName: "bookmark.fill") else { return }
+               guard let unselected = UIImage(systemName: "bookmark") else { return }
+               var bookmark: UIImage
+               
+               switch favorite {
+               case true:
+                   bookmark = selected
+               case false:
+                   bookmark = unselected
+               }
+               self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: bookmark, style: .done, target: self, action: #selector(didPressFavorite))
     }
     
     private func configureImage(with stringUrl: String) {
