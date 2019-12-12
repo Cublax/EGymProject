@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AC8C0B2723916919008B2006"
-               BuildableName = "EgymProject.app"
-               BlueprintName = "EgymProject"
-               ReferencedContainer = "container:EgymProject.xcodeproj">
+               BuildableName = "NewYorkTimes_TopStories.app"
+               BlueprintName = "NewYorkTimes_TopStories"
+               ReferencedContainer = "container:NewYorkTimes_TopStories.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AC8C0B3D2391691E008B2006"
-               BuildableName = "EgymProjectTests.xctest"
-               BlueprintName = "EgymProjectTests"
-               ReferencedContainer = "container:EgymProject.xcodeproj">
+               BuildableName = "NewYorkTimes_TopStoriesTests.xctest"
+               BlueprintName = "NewYorkTimes_TopStoriesTests"
+               ReferencedContainer = "container:NewYorkTimes_TopStories.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC8C0B2723916919008B2006"
-            BuildableName = "EgymProject.app"
-            BlueprintName = "EgymProject"
-            ReferencedContainer = "container:EgymProject.xcodeproj">
+            BuildableName = "NewYorkTimes_TopStories.app"
+            BlueprintName = "NewYorkTimes_TopStories"
+            ReferencedContainer = "container:NewYorkTimes_TopStories.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC8C0B2723916919008B2006"
-            BuildableName = "EgymProject.app"
-            BlueprintName = "EgymProject"
-            ReferencedContainer = "container:EgymProject.xcodeproj">
+            BuildableName = "NewYorkTimes_TopStories.app"
+            BlueprintName = "NewYorkTimes_TopStories"
+            ReferencedContainer = "container:NewYorkTimes_TopStories.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

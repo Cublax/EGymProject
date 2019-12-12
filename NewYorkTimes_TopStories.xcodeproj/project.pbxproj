@@ -112,13 +112,13 @@
 		AC5D0DFC2397A18700A3F671 /* CategoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDataSource.swift; sourceTree = "<group>"; };
 		AC5D0DFE2397A1BF00A3F671 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		AC6C472F2395549C00B4B2F4 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		AC8C0B282391691A008B2006 /* EgymProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EgymProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC8C0B282391691A008B2006 /* NewYorkTimes_TopStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewYorkTimes_TopStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8C0B2B2391691A008B2006 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC8C0B322391691A008B2006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC8C0B342391691D008B2006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC8C0B372391691D008B2006 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC8C0B392391691D008B2006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC8C0B3E2391691E008B2006 /* EgymProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EgymProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC8C0B3E2391691E008B2006 /* NewYorkTimes_TopStoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewYorkTimes_TopStoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8C0B442391691E008B2006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC8C0B4D23916D87008B2006 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		AC8C0B4F23916EBA008B2006 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -299,8 +299,8 @@
 		AC8C0B1F23916919008B2006 = {
 			isa = PBXGroup;
 			children = (
-				AC8C0B2A2391691A008B2006 /* EgymProject */,
-				AC8C0B412391691E008B2006 /* EgymProjectTests */,
+				AC8C0B2A2391691A008B2006 /* NYTProject */,
+				AC8C0B412391691E008B2006 /* NYTProjectTests */,
 				AC8C0B292391691A008B2006 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -308,13 +308,13 @@
 		AC8C0B292391691A008B2006 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC8C0B282391691A008B2006 /* EgymProject.app */,
-				AC8C0B3E2391691E008B2006 /* EgymProjectTests.xctest */,
+				AC8C0B282391691A008B2006 /* NewYorkTimes_TopStories.app */,
+				AC8C0B3E2391691E008B2006 /* NewYorkTimes_TopStoriesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AC8C0B2A2391691A008B2006 /* EgymProject */ = {
+		AC8C0B2A2391691A008B2006 /* NYTProject */ = {
 			isa = PBXGroup;
 			children = (
 				AC8C0B362391691D008B2006 /* LaunchScreen.storyboard */,
@@ -332,10 +332,10 @@
 				AC8C0B342391691D008B2006 /* Assets.xcassets */,
 				AC8C0B392391691D008B2006 /* Info.plist */,
 			);
-			path = EgymProject;
+			path = NYTProject;
 			sourceTree = "<group>";
 		};
-		AC8C0B412391691E008B2006 /* EgymProjectTests */ = {
+		AC8C0B412391691E008B2006 /* NYTProjectTests */ = {
 			isa = PBXGroup;
 			children = (
 				AC3D79A42399241F006B61C6 /* WebView */,
@@ -346,7 +346,7 @@
 				AC3D798F239920D8006B61C6 /* NetworkTests */,
 				AC8C0B442391691E008B2006 /* Info.plist */,
 			);
-			path = EgymProjectTests;
+			path = NYTProjectTests;
 			sourceTree = "<group>";
 		};
 		AC8C0B57239177AE008B2006 /* Listing */ = {
@@ -427,9 +427,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC8C0B2723916919008B2006 /* EgymProject */ = {
+		AC8C0B2723916919008B2006 /* NewYorkTimes_TopStories */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC8C0B472391691E008B2006 /* Build configuration list for PBXNativeTarget "EgymProject" */;
+			buildConfigurationList = AC8C0B472391691E008B2006 /* Build configuration list for PBXNativeTarget "NewYorkTimes_TopStories" */;
 			buildPhases = (
 				AC8C0B2423916919008B2006 /* Sources */,
 				AC8C0B2523916919008B2006 /* Frameworks */,
@@ -439,14 +439,14 @@
 			);
 			dependencies = (
 			);
-			name = EgymProject;
+			name = NewYorkTimes_TopStories;
 			productName = EgymProject;
-			productReference = AC8C0B282391691A008B2006 /* EgymProject.app */;
+			productReference = AC8C0B282391691A008B2006 /* NewYorkTimes_TopStories.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AC8C0B3D2391691E008B2006 /* EgymProjectTests */ = {
+		AC8C0B3D2391691E008B2006 /* NewYorkTimes_TopStoriesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC8C0B4A2391691E008B2006 /* Build configuration list for PBXNativeTarget "EgymProjectTests" */;
+			buildConfigurationList = AC8C0B4A2391691E008B2006 /* Build configuration list for PBXNativeTarget "NewYorkTimes_TopStoriesTests" */;
 			buildPhases = (
 				AC8C0B3A2391691E008B2006 /* Sources */,
 				AC8C0B3B2391691E008B2006 /* Frameworks */,
@@ -457,9 +457,9 @@
 			dependencies = (
 				AC8C0B402391691E008B2006 /* PBXTargetDependency */,
 			);
-			name = EgymProjectTests;
+			name = NewYorkTimes_TopStoriesTests;
 			productName = EgymProjectTests;
-			productReference = AC8C0B3E2391691E008B2006 /* EgymProjectTests.xctest */;
+			productReference = AC8C0B3E2391691E008B2006 /* NewYorkTimes_TopStoriesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -482,7 +482,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "EgymProject" */;
+			buildConfigurationList = AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "NewYorkTimes_TopStories" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -495,8 +495,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC8C0B2723916919008B2006 /* EgymProject */,
-				AC8C0B3D2391691E008B2006 /* EgymProjectTests */,
+				AC8C0B2723916919008B2006 /* NewYorkTimes_TopStories */,
+				AC8C0B3D2391691E008B2006 /* NewYorkTimes_TopStoriesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -597,7 +597,7 @@
 /* Begin PBXTargetDependency section */
 		AC8C0B402391691E008B2006 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AC8C0B2723916919008B2006 /* EgymProject */;
+			target = AC8C0B2723916919008B2006 /* NewYorkTimes_TopStories */;
 			targetProxy = AC8C0B3F2391691E008B2006 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -742,8 +742,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3ZXCXJK7A;
-				INFOPLIST_FILE = EgymProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_FILE = NYTProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -761,8 +761,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3ZXCXJK7A;
-				INFOPLIST_FILE = EgymProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_FILE = NYTProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -794,7 +794,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EgymProject.app/EgymProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewYorkTimes_TopStories.app/NewYorkTimes_TopStories";
 			};
 			name = Debug;
 		};
@@ -817,14 +817,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EgymProject.app/EgymProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewYorkTimes_TopStories.app/NewYorkTimes_TopStories";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "EgymProject" */ = {
+		AC8C0B2323916919008B2006 /* Build configuration list for PBXProject "NewYorkTimes_TopStories" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC8C0B452391691E008B2006 /* Debug */,
@@ -833,7 +833,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC8C0B472391691E008B2006 /* Build configuration list for PBXNativeTarget "EgymProject" */ = {
+		AC8C0B472391691E008B2006 /* Build configuration list for PBXNativeTarget "NewYorkTimes_TopStories" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC8C0B482391691E008B2006 /* Debug */,
@@ -842,7 +842,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC8C0B4A2391691E008B2006 /* Build configuration list for PBXNativeTarget "EgymProjectTests" */ = {
+		AC8C0B4A2391691E008B2006 /* Build configuration list for PBXNativeTarget "NewYorkTimes_TopStoriesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC8C0B4B2391691E008B2006 /* Debug */,
